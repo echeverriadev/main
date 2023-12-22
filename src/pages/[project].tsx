@@ -17,7 +17,11 @@ export default function DinamicPage({ project }: { project: string }) {
   const ExternalComponent = components[projectFormated];
 
   if (!ExternalComponent) {
-    return <div>Failed to load</div>;
+    return (
+      <MainLayout>
+        <h1>ERROR AL CARGAR EL COMPONENTE</h1>
+      </MainLayout>
+    )
   }
 
   return (

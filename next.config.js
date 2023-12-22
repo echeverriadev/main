@@ -4,7 +4,7 @@ const { NextFederationPlugin } = require("@module-federation/nextjs-mf");
 const remotes = (isServer) => {
   const location = isServer ? "ssr" : "chunks";
   return {
-    'harry-potter': `harry-potter@${process.env.URL_APP_HARRY_POTTER}/_next/static/${location}/remoteEntry.js`,
+    harryPotter : `harryPotter@${process.env.URL_APP_HARRY_POTTER}/_next/static/${location}/remoteEntry.js`,
   };
 };
 
@@ -15,14 +15,7 @@ const nextConfig = {
       new NextFederationPlugin({
         name: "main",
         filename: "static/chunks/remoteEntry.js",
-        remotes: {
-          harryPotter: `harryPotter@http://localhost:3001/_next/static/chunks/remoteEntry.js`
-        },
-        exposes: {},
-        extraOptions: {
-          exposePages: true,
-          automaticAsyncBoundary: true,
-        },
+        remotes: remotes(options.isServer),
       })
     );
     return config;
