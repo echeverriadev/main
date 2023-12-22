@@ -1,0 +1,21 @@
+.navbar-container {
+  margin-bottom: 3rem;
+}
+
+.navbar-container a {
+  border: 2px solid var(--button-color);
+  border-radius: var(--border-radius);
+  margin: 0 0.5rem;
+  padding: 10px;
+}
+
+.navbar-container a:hover {
+  background: var(--button-color);
+  color: white;
+}
+
+.navbar-container a .active {
+  background-color: var(--button-color);
+  color: "#fff";
+  text-decoration: "underline";
+}
