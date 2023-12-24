@@ -5,11 +5,15 @@ const remotes = (isServer) => {
   const location = isServer ? "ssr" : "chunks";
   return {
     harryPotter : `harryPotter@${process.env.URL_APP_HARRY_POTTER}/_next/static/${location}/remoteEntry.js`,
+    rickAndMorty : `rickAndMorty@${process.env.URL_APP_RICK_AND_MORTY}/_next/static/${location}/remoteEntry.js`,
   };
 };
 
 const nextConfig = {
   reactStrictMode: true,
+  images: {
+    domains: ["ik.imagekit.io","rickandmortyapi.com"],
+  },
   webpack(config, options) {
     config.plugins.push(
       new NextFederationPlugin({

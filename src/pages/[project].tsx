@@ -5,6 +5,7 @@ import dynamic from 'next/dynamic';
 
 const components: any = {
   'harryPotter': dynamic(() => import('harryPotter/pages/index')),
+  'rickAndMorty': dynamic(() => import('rickAndMorty/pages/index')),
 };
 
 const DinamicPage = ({ project }: { project: string }) => {
