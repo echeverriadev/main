@@ -18,8 +18,9 @@ export const MainLayout = ({ children }: { children: ReactNode }) => {
       <main className={styles.main}>
         <h1 className={inter.className}>N5 Now project</h1>
         <h2 className={inter.className}> Listado de personajes</h2>
-        { children }
+        <Navbar />
+        {children}
       </main>
     </>
-  )
+  );
 };

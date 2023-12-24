@@ -4,12 +4,19 @@ import { useRouter } from "next/router";
 const inter = Inter({ subsets: ["latin"] });
 
 interface Props {
+  href: string,
   label: string,
-  click: () => void,
 }
 
-export const ActiveLink = ({label, click}: Props) => {
+const style = {
+  backgroundColor: "var(--button-color)",
+  color: "#fff",
+  textDecoration: "underline",
+}
+
+export const ActiveLink = ({href, label}: Props) => {
+  const { asPath } = useRouter()
   return (
-    <button onClick={click} className={inter.className}>{label}</button>
+    <Link style={ asPath === href ? style : undefined } className={inter.className} href={href}>{label}</Link>
   )
 }
