@@ -1,25 +1,20 @@
 import { MainLayout } from '@/layouts/MainLayout';
+import { toCamelCase } from '@/utils/parse-functions';
 import { GetServerSideProps } from 'next';
 import dynamic from 'next/dynamic';
 
-const toCamelCase = (str: string) => {
-  return str.replace(/-([a-z])/g, (g) => g[1].toUpperCase());
-};
-
 const components: any = {
   'harryPotter': dynamic(() => import('harryPotter/pages/index')),
-  // 'rickAndMorty': dynamic(() => import('rickAndMorty/pages/index')),
-  // Agrega aquí más componentes según sea necesario
 };
 
-export default function DinamicPage({ project }: { project: string }) {
+const DinamicPage = ({ project }: { project: string }) => {
   const projectFormated = toCamelCase(project);
   const ExternalComponent = components[projectFormated];
 
   if (!ExternalComponent) {
     return (
       <MainLayout>
-        <h1>ERROR AL CARGAR EL COMPONENTE</h1>
+        <div>Componente no encontrado</div>
       </MainLayout>
     )
   }
@@ -44,3 +39,5 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     props: { project },
   }
 }
+
+export default DinamicPage;
