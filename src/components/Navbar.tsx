@@ -1,11 +1,18 @@
 import { ActiveLink } from "./ActiveLink";
 import styles from "../styles/Navbar.module.css";
 
-export const Navbar = () => {
+interface Props {
+  buttons: {label: string, click: () => void}[]
+}
+
+export const Navbar = ({buttons}: Props) => {
   return (
     <nav className={styles["navbar-container"]}>
-      <ActiveLink href="/harry-potter" label="Harry Potter" />
-      <ActiveLink href="/rick-and-morty" label="Rick y Morty" />
+      {
+        buttons.map((button, index) => (
+          <ActiveLink key={index} label={button.label} click={button.click}/>
+        ))
+      }
     </nav>
   )
 }
