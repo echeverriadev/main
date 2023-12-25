@@ -1,0 +1,14 @@
+{
+  "seo": {
+    "title": "Principal - N5 Now | Carlos Echeverría",
+    "description": "Orquestador de microfrontend"
+  },
+  "navbar": {
+    "title": "Proyecto N5 now",
+    "subtitle": "Listado de personajes"
+  },
+  "main": {
+    "label": "Selecciona una opción para ver el listado de personajes",
+    "not-found": "Componente no encontrado"
+  }
+}

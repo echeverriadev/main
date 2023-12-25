@@ -1,0 +1,14 @@
+{
+  "seo": {
+    "title": "Main - N5 Now | Carlos Echeverría",
+    "description": "Microfrontend Orchestrator"
+  },
+  "navbar": {
+    "title": "N5 now project",
+    "subtitle": "Character list"
+  },
+  "main": {
+    "label": "Select an option to see the list of characters",
+    "not-found": "Component is not found"
+  }
+}
