@@ -1,6 +1,4 @@
-import { Navbar } from "@/components/Navbar";
 import { MainLayout } from "@/layouts/MainLayout";
-import dynamic from "next/dynamic";
 import { Inter } from "next/font/google";
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useTranslation } from 'next-i18next'
