@@ -1,16 +1,15 @@
 import { Navbar } from "@/components/Navbar";
+import { useTranslation } from 'next-i18next';
 import { Inter } from "next/font/google";
 import Head from "next/head";
+import { ReactNode } from "react";
 import styles from "../styles/MainLayout.module.css";
-import { useTranslation } from 'next-i18next'
 const inter = Inter({ subsets: ["latin"] });
 
-import { ReactNode } from "react";
-import { useRouter } from "next/router";
 
 export const MainLayout = ({ children }: { children: ReactNode }) => {
-  const {locale, locales, push} = useRouter();
   const { t } = useTranslation();
+
   return (
     <>
       <Head>
