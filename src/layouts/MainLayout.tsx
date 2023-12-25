@@ -1,4 +1,4 @@
-import { Navbar } from "@/components/Navbar";
+import { Navbar } from "../components/Navbar";
 import { useTranslation } from 'next-i18next';
 import { Inter } from "next/font/google";
 import Head from "next/head";
