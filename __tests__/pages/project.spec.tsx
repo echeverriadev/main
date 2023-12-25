@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import DinamicPage from '../[project]';
+import DinamicPage from '../../src/pages/[project]';
 
 jest.mock('next/router', () => ({
   useRouter: () => ({

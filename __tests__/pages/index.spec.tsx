@@ -1,6 +1,6 @@
-import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Main from '../index';
+import { render, screen } from '@testing-library/react';
+import Main from '../../src/pages/index';
 
 jest.mock('react-i18next', () => ({
   useTranslation: () => ({ t: (key: string) => key })

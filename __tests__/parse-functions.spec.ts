@@ -1,4 +1,4 @@
-import { toCamelCase } from '../parse-functions';
+import { toCamelCase } from '../src/utils/parse-functions';
 
 describe('toCamelCase', () => {
   it('should convert strings with hyphens to camelCase', () => {

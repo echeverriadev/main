@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
 import { render, fireEvent } from '@testing-library/react';
-import { Navbar } from '../Navbar';
+import { Navbar } from '../../src/components/Navbar';
 import { RouterContext } from 'next/dist/shared/lib/router-context';
 
 describe('Navbar Component', () => {
