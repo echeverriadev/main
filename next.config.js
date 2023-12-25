@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const { NextFederationPlugin } = require("@module-federation/nextjs-mf");
+const { i18n } = require('./next-i18next.config')
 
 const remotes = (isServer) => {
   const location = isServer ? "ssr" : "chunks";
@@ -10,6 +11,7 @@ const remotes = (isServer) => {
 };
 
 const nextConfig = {
+  i18n,
   reactStrictMode: true,
   images: {
     domains: ["ik.imagekit.io","rickandmortyapi.com"],
