@@ -1,6 +1,8 @@
 import { MainLayout } from '@/layouts/MainLayout';
 import { toCamelCase } from '@/utils/parse-functions';
+import { useTranslation } from 'next-i18next'
 import { GetServerSideProps } from 'next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import dynamic from 'next/dynamic';
 
 const components: any = {
@@ -9,13 +11,15 @@ const components: any = {
 };
 
 const DinamicPage = ({ project }: { project: string }) => {
+  const { t } = useTranslation();
+
   const projectFormated = toCamelCase(project);
   const ExternalComponent = components[projectFormated];
 
   if (!ExternalComponent) {
     return (
       <MainLayout>
-        <div>Componente no encontrado</div>
+        <div>{t('main.not-found')}</div>
       </MainLayout>
     )
   }
@@ -26,9 +30,9 @@ const DinamicPage = ({ project }: { project: string }) => {
     </MainLayout>
   )
 }
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async ({params, locale = 'es'}) => {
   const validProjects = ['harry-potter', 'rick-and-morty'];
-  const project = context.params?.project;
+  const project = params?.project;
 
   if (!validProjects.includes(project as string)) {
     return {
@@ -37,7 +41,10 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   }
 
   return {
-    props: { project },
+    props: {
+      project,
+      ...(await serverSideTranslations(locale)),
+    },
   }
 }
 
