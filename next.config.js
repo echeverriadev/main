@@ -18,13 +18,12 @@ const nextConfig = {
   },
   webpack(config, options) {
     config.output.publicPath = "auto";
-
     config.plugins.push(
       new NextFederationPlugin({
         name: "main",
         filename: "static/chunks/remoteEntry.js",
         remotes: remotes(options.isServer),
-        shared: ["react", "react-dom"],
+        shared: ["react", "react-dom"]
       })
     );
     return config;
